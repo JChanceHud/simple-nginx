@@ -24,8 +24,8 @@ workflows:
   build_all:
     jobs:
       - build:
-        context: org-global
-        filters:
-          branches:
-            only:
-              - master
+          context: org-global
+          filters:
+            branches:
+              only:
+                - master
