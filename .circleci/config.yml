@@ -1,3 +1,4 @@
+# Use yaml pointers for storing multiline commands
 boot: &Boot |
   docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
   echo 'export DOCKER_REPO=jchancehud/simple-nginx' >> $BASH_ENV
