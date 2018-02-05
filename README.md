@@ -1,5 +1,7 @@
 # simple-nginx
 
+[![CircleCI](https://img.shields.io/circleci/project/github/JChanceHud/simple-nginx.svg)](https://circleci.com/gh/JChanceHud/simple-nginx)
+
 A docker image with nginx installed and a simple web server running with content from the `/www` directory.
 
 ## Tags
