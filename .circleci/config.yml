@@ -1,0 +1,30 @@
+boot: &Boot |
+  docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
+  echo 'export DOCKER_REPO=jchancehud/simple-nginx' >> $BASH_ENV
+
+master_build: &MasterBuild |
+  cd alpine
+  docker build . -t $DOCKER_REPO:alpine
+  docker push $DOCKER_REPO:alpine
+  docker tag $DOCKER_REPO:alpine $DOCKER_REPO:latest
+  docker push $DOCKER_REPO:latest
+
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: *Boot
+      - run: *MasterBuild
+
+workflows:
+  version: 2
+  build_all:
+    jobs:
+      - build:
+        context: org-global
+        filters:
+          branches:
+            only:
+              - master
