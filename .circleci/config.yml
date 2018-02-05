@@ -9,6 +9,7 @@ master_build: &MasterBuild |
   docker push $DOCKER_REPO:alpine
   docker tag $DOCKER_REPO:alpine $DOCKER_REPO:latest
   docker push $DOCKER_REPO:latest
+  echo "testing ci bug"
 
 version: 2
 jobs:
